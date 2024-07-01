@@ -1,0 +1,60 @@
+.meal-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 10px 5px;
+  flex-basis: 20%;
+  transition: all 0.5s ease;
+  .meal-link {
+    text-decoration: none;
+    color: #000;
+    border: 2px solid #daa520;
+    background: #fff;
+    margin: 20px 10px;
+    padding: 10px 5px;
+    flex-basis: 15%;
+    transition: all 0.5s ease;
+    .dish-photography {
+      width: 100%;
+    }
+    @media (max-width: 1024px) {
+      flex-basis: 18%;
+    }
+    @media (max-width: 768px) {
+      flex-basis: 30%;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 25px 10px;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 1.4em;
+  li {
+    padding: 15px 15px 0;
+    list-style: none;
+    vertical-align: middle;
+    a:focus,
+    a:active,
+    a:hover {
+      outline: none;
+      cursor: pointer;
+    }
+  }
+  li:hover,
+  .active {
+    color: #daa520;
+    text-decoration: underline;
+  }
+  .break-me {
+    padding: 10px 0;
+  }
+  .previous.hover,
+  .next:hover {
+    color: #daa520;
+  }
+}

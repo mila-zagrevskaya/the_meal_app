@@ -1,0 +1,48 @@
+.content-container {
+  padding: 20px 30px;
+  margin: 40px 5px;
+  display: flex;
+  flex-direction: column;
+  transition: all 1s ease;
+}
+.title-wrapper {
+  max-width: 55%;
+  margin: 40px auto;
+  padding: 10px 15px;
+}
+h1 {
+  text-transform: uppercase;
+}
+.search-container {
+  align-self: flex-end;
+  width: 45%;
+}
+.input-search {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 3px solid #daa520;
+  display: block;
+  transition: all 0.3s;
+  &:focus,
+  &:active,
+  &:hover {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.5);
+    border-bottom: 3px solid green;
+  }
+}
+.meals-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  transition: all 1s ease;
+}
+.go-to-singup {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}

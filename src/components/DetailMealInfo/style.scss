@@ -1,0 +1,40 @@
+.presentational-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 25px 35px;
+  .ingredients {
+    flex-basis: 65%;
+  }
+}
+.meal-photo {
+  .dish-photography {
+    max-width: 250px;
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    border: 5px inset #daa520;
+  }
+}
+
+.meal-item {
+  text-align: center;
+  font-weight: bold;
+  color: #282828;
+  img {
+    display: block;
+    margin: 10px auto;
+    max-width: 80px;
+  }
+  span {
+    font-size: 0.9em;
+  }
+}
+
+.instructions {
+  font-weight: bold;
+  color: #282828;
+}
+.container-for-video {
+  margin-top: 55px;
+}

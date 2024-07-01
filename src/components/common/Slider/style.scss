@@ -1,0 +1,11 @@
+.slick-slider,
+.slick-initialized {
+  width: 60%;
+  margin: 60px auto;
+  .slick-list {
+    padding: 0px 50px 20px;
+    .slick-track {
+      width: 45%;
+    }
+  }
+}

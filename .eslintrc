@@ -1,0 +1,36 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
+
+  "extends": ["airbnb/base", "plugin:react/recommended"],
+
+  "parser": "babel-eslint",
+
+  "env": {
+    "browser": true
+  },
+
+  "rules": {
+    "no-console": ["off"],
+    "class-methods-use-this": "off",
+    "arrow-parents": ["off", { "requireForBlockBody": true }],
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off"
+  }
+}
