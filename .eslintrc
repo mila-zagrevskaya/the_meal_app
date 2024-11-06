@@ -1,5 +1,7 @@
 {
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "requireConfigFile": false, // Set to true if you have a babel config file
     "ecmaVersion": 2020,
     "ecmaFeatures": {
       "jsx": true
@@ -18,9 +20,7 @@
     }
   },
 
-  "extends": ["airbnb/base", "plugin:react/recommended"],
-
-  "parser": "babel-eslint",
+  "extends": ["react-app", "airbnb/base", "plugin:react/recommended"],
 
   "env": {
     "browser": true

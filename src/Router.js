@@ -1,6 +1,6 @@
 import firebaseConfig from 'config/firebaseConfig';
 import React, { Component } from 'react';
-import { Switch } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
 
 import { ProtectedRoute } from 'ProtectedRoute';
 import {
@@ -66,7 +66,7 @@ export class Router extends Component {
 
   render() {
     return (
-      <Switch>
+      <Routes>
         {route.map((el) => (
           <ProtectedRoute
             protectedRoute={el.protected}
@@ -76,7 +76,7 @@ export class Router extends Component {
             component={el.component}
           />
         ))}
-      </Switch>
+      </Routes>
     );
   }
 }
