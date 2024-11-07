@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from 'actions/actions';
-import { SEARCH_MEAL_BY_NAME } from 'constants/resource_URL';
+import { SEARCH_MEAL_BY_NAME, QUERY_PARAMS } from 'constants/resource_URL';
 
 import { ListWithPagination } from 'components/common/Pagination';
 import { SearchField } from './Search';
@@ -14,7 +14,7 @@ const INITIAL_SEARCH_PARAMETER = 'a';
 class Home extends Component {
   componentDidMount() {
     const { doRequestToGetItemsByFirstLetter } = this.props;
-    doRequestToGetItemsByFirstLetter(`${SEARCH_MEAL_BY_NAME}${INITIAL_SEARCH_PARAMETER}`);
+    doRequestToGetItemsByFirstLetter(`${SEARCH_MEAL_BY_NAME}${INITIAL_SEARCH_PARAMETER}`, { QUERY_PARAMS });
   }
 
   render() {

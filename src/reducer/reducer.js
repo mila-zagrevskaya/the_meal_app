@@ -13,7 +13,15 @@ const intialState = {
 
 // ____________________________
 
-export const getItemsReducer = (state = intialState, { type, payload }) => {
+const getItemsReducer = (action, state = intialState) => {
+  if (!action) {
+    console.warn('Action is undefined!');
+    return state; // Return current state if action is undefined
+  }
+  console.log('Action received:', action);
+  const { type, payload } = action;
+  console.log('Action type, payload:', type, payload);
+
   switch (type) {
     // _______doRequestToGetItemsByFirstLetter__________
 
@@ -73,3 +81,5 @@ export const getItemsReducer = (state = intialState, { type, payload }) => {
       return state;
   }
 };
+
+export default getItemsReducer;

@@ -1,4 +1,4 @@
-import firebaseConfig from 'config/firebaseConfig';
+import firebaseConfig, { auth } from 'config/firebaseConfig';
 import React, { Component } from 'react';
 import { Routes } from 'react-router-dom';
 
@@ -55,7 +55,8 @@ export class Router extends Component {
   }
 
   authListener = () => {
-    firebaseConfig.auth().onAuthStateChanged((user) => {
+    auth();
+    firebaseConfig.onAuthStateChanged((user) => {
       if (user) {
         localStorage.setItem('userIsAuthorized', user.uid);
       } else {

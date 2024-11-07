@@ -9,6 +9,7 @@ const getItemsByFirstLetterSuccess = createAction(type.GET_ITEMS_BY_FIRST_LETTER
 const getItemsByFirstLetterFail = createAction(type.GET_ITEMS_BY_FIRST_LETTER_FAIL);
 
 export const doRequestToGetItemsByFirstLetter = (url, payload) => async (dispatch) => {
+  console.log('url, payload', url, payload);
   dispatch(getItemsByFirstLetter(payload));
   try {
     const response = await fetch(url);

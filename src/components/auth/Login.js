@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebaseConfig from 'config/firebaseConfig';
+import firebaseConfig, { auth } from 'config/firebaseConfig';
 import { Link } from 'react-router-dom';
 import {
   Formik, Form, Field, ErrorMessage,
@@ -11,8 +11,8 @@ import { HOME, SING_UP } from 'constants/pathnames';
 
 export class LoginForm extends Component {
   loginHandler = ({ email, password }) => {
+    auth();
     firebaseConfig
-      .auth()
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
         const userIsAuthorized = JSON.stringify(user.user.uid);
