@@ -1,5 +1,7 @@
 import { createAction } from 'redux-actions';
+// import * as type from 'actionTypes/actionTypes';
 import * as type from 'actionTypes/actionTypes';
+
 import { INGREDIENT_IMAGES } from 'constants/resource_URL';
 
 // _______doRequestToGetItemsByFirstLetter_____________________
