@@ -1,4 +1,6 @@
-const BASE_URL = 'https://themealdb.p.rapidapi.com/';
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+export const RAPIDAPI_KEY = process.env.REACT_APP_RAPIDAPI_KEY;
+export const RAPIDAPI_HOST = process.env.REACT_APP_RAPIDAPI_HOST;
 
 export const SEARCH_MEAL_BY_NAME = `${BASE_URL}search.php?s=`;
 
@@ -6,12 +8,8 @@ export const LOOKUP_FULL_MEAL_DETAILS_BY_ID = `${BASE_URL}lookup.php?i=`;
 
 export const INGREDIENT_IMAGES = 'https://www.themealdb.com/images/ingredients/';
 
-const QUERY_HEADER = {
-  'x-rapidapi-key': 'c486cb759cmshf1f8192d46b1331p132efajsnbd77780b9401',
-  'x-rapidapi-host': 'themealdb.p.rapidapi.com',
-};
+// export const { REACT_APP_RAPIDAPI_KEY, REACT_APP_RAPIDAPI_HOST } = process.env;
 
-export const QUERY_PARAMS = {
-  method: 'GET',
-  headers: QUERY_HEADER,
-};
+console.log('SEARCH_MEAL_BY_NAME', SEARCH_MEAL_BY_NAME);
+console.log('LOOKUP_FULL_MEAL_DETAILS_BY_ID', LOOKUP_FULL_MEAL_DETAILS_BY_ID);
+console.log('INGREDIENT_IMAGES', INGREDIENT_IMAGES);

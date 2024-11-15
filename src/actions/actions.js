@@ -1,8 +1,7 @@
 import { createAction } from 'redux-actions';
-// import * as type from 'actionTypes/actionTypes';
 import * as type from 'actionTypes/actionTypes';
 
-import { INGREDIENT_IMAGES } from 'constants/resource_URL';
+import { RAPIDAPI_KEY, RAPIDAPI_HOST } from 'constants/resource_URL';
 
 // _______doRequestToGetItemsByFirstLetter_____________________
 
@@ -10,11 +9,19 @@ const getItemsByFirstLetter = createAction(type.GET_ITEMS_BY_FIRST_LETTER);
 const getItemsByFirstLetterSuccess = createAction(type.GET_ITEMS_BY_FIRST_LETTER_SUCCESS);
 const getItemsByFirstLetterFail = createAction(type.GET_ITEMS_BY_FIRST_LETTER_FAIL);
 
+const options = {
+  method: 'GET',
+  headers: {
+    'x-rapidapi-key': RAPIDAPI_KEY,
+    'x-rapidapi-host': RAPIDAPI_HOST,
+  },
+};
+
 export const doRequestToGetItemsByFirstLetter = (url, payload) => async (dispatch) => {
   console.log('url, payload', url, payload);
   dispatch(getItemsByFirstLetter(payload));
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, options);
 
     const json = await response.json();
 
@@ -35,6 +42,8 @@ export const changeSelectedPage = createAction(type.CHANGE_SELECTED_PAGE);
 // _____getIngredientImage____________
 
 export const getIngredientsWithImages = async (meal) => {
+  const INGREDIENT_IMAGES = process.env.REACT_APP_INGREDIENT_IMAGES;
+
   const listOfIngredients = Object.keys(meal).filter((item) => item.slice(0, 13) === 'strIngredient');
   const ingredients = listOfIngredients.map((key) => meal[key]).filter((item) => item);
   const urlPhotoIngredients = await Promise.all(
