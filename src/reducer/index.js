@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import { getItemsReducer } from './reducer';
+import getItemsReducer from './reducer';
 
-export default combineReducers({
+const rootReducer = combineReducers({
   appState: getItemsReducer,
 });
+
+export default rootReducer;

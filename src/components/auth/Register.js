@@ -4,7 +4,9 @@ import { createHashHistory } from 'history';
 import {
   Formik, Form, Field, FieldArray, ErrorMessage,
 } from 'formik';
-import firebaseConfig from 'config/firebaseConfig';
+// import firebaseConfig, { auth } from 'config/firebaseConfig';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from 'config/firebaseConfig';
 import {
   validateEmail,
   validatePassword,
@@ -18,8 +20,13 @@ const history = createHashHistory();
 
 export class RegisterForm extends Component {
   signupHandler = ({ email, password }) => {
-    firebaseConfig.auth().createUserWithEmailAndPassword(email, password);
-    history.push(LOG_IN);
+    createUserWithEmailAndPassword(auth, email, password) // Correct function call
+      .then(() => {
+        history.push(LOG_IN);
+      })
+      .catch((error) => {
+        console.error('Signup failed:', error.message);
+      });
   };
 
   render() {

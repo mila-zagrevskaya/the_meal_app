@@ -12,7 +12,7 @@ export class SliderComponent extends Component {
       arrows: true,
       centerMode: true,
       swipeToSlide: true,
-      slidesToShow: 4,
+      slidesToShow: 7,
       slidesToScroll: 1,
     };
     return <Slider {...settings}>{this.props.children}</Slider>;

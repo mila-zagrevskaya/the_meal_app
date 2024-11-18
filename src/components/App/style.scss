@@ -9,10 +9,13 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+.container {
+  background-color: #8a8a8a97;
+}
 .page-wrapper {
   max-width: 1400px;
   margin: 0 auto;
-  background-color: #8a8a8a97;
+  // background-color: #8a8a8a97;
   min-height: 100vh;
 }
 .content-container {

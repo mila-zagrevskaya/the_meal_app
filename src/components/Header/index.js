@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { createHashHistory } from 'history';
-import firebaseConfig from 'config/firebaseConfig';
+import firebaseConfig, { auth } from 'config/firebaseConfig';
+
 import logo from 'assets/images/logo1.png';
 import {
   LOG_IN, HOME, POPULAR_INGREDIENTS, BROWSE_COUNTRY,
@@ -17,19 +18,19 @@ const navItems = [
     path: HOME,
     id: 1,
     text: 'Home',
-    exact: true,
+    // exact: true,
   },
   {
     path: POPULAR_INGREDIENTS,
     id: 2,
     text: 'Popular ingredients',
-    exact: false,
+    // exact: false,
   },
   {
     path: BROWSE_COUNTRY,
     id: 3,
     text: 'Browse Country',
-    exact: false,
+    // exact: false,
   },
 ];
 
@@ -37,7 +38,8 @@ const activeStyle = { color: '#daa520', textDecoration: 'underline' };
 
 export class Header extends Component {
   logout = () => {
-    firebaseConfig.auth().signOut();
+    auth();
+    firebaseConfig.signOut();
     localStorage.removeItem('userIsAuthorized');
     history.push(LOG_IN);
   };
@@ -57,9 +59,9 @@ export class Header extends Component {
                 <li className='nav-item' key={el.id}>
                   <NavLink
                     to={el.path}
-                    exact={el.exact}
-                    activeStyle={activeStyle}
-                    activeClassName='active'>
+                    // exact={el.exact}
+                    activestyle={activeStyle}
+                    activeclassname='active'>
                     {el.text}
                   </NavLink>
                 </li>

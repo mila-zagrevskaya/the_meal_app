@@ -8,8 +8,9 @@ export class IngredientsList extends Component {
       <SliderComponent>
         {ingredients.map((item, index) => (
           <div className='meal-item' key={index}>
-            <img src={item.imageUrl} alt={item.ingredientName} />
             <span>{item.ingredientName} </span>
+            <img src={item.imageUrl} alt={item.ingredientName} />
+            <span>{item.ingredientMeasure}</span>
           </div>
         ))}
       </SliderComponent>

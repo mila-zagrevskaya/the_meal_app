@@ -13,7 +13,7 @@ const intialState = {
 
 // ____________________________
 
-export const getItemsReducer = (state = intialState, { type, payload }) => {
+const getItemsReducer = (state = intialState, { type, payload }) => {
   switch (type) {
     // _______doRequestToGetItemsByFirstLetter__________
 
@@ -73,3 +73,5 @@ export const getItemsReducer = (state = intialState, { type, payload }) => {
       return state;
   }
 };
+
+export default getItemsReducer;

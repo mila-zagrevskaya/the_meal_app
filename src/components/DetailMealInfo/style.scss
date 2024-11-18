@@ -1,10 +1,16 @@
 .presentational-container {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
-  padding: 25px 35px;
+  gap: 20px;
+  padding: 25px 0;
+
   .ingredients {
-    flex-basis: 65%;
+    flex-basis: 100%;
+    padding: 30px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 }
 .meal-photo {
@@ -34,6 +40,9 @@
 .instructions {
   font-weight: bold;
   color: #282828;
+  background-color: rgba(223, 223, 223, .59);
+  padding: 24px 34px;
+  line-height: 1.5rem;
 }
 .container-for-video {
   margin-top: 55px;
