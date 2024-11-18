@@ -18,19 +18,19 @@ const navItems = [
     path: HOME,
     id: 1,
     text: 'Home',
-    exact: true,
+    // exact: true,
   },
   {
     path: POPULAR_INGREDIENTS,
     id: 2,
     text: 'Popular ingredients',
-    exact: false,
+    // exact: false,
   },
   {
     path: BROWSE_COUNTRY,
     id: 3,
     text: 'Browse Country',
-    exact: false,
+    // exact: false,
   },
 ];
 
@@ -59,9 +59,9 @@ export class Header extends Component {
                 <li className='nav-item' key={el.id}>
                   <NavLink
                     to={el.path}
-                    exact={el.exact}
-                    activeStyle={activeStyle}
-                    activeClassName='active'>
+                    // exact={el.exact}
+                    activestyle={activeStyle}
+                    activeclassname='active'>
                     {el.text}
                   </NavLink>
                 </li>

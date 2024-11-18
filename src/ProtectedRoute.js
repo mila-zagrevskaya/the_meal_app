@@ -11,9 +11,9 @@ export const ProtectedRoute = ({ component: Component, protectedRoute, ...rest }
   }
 
   return (
-    <>
+    <div className='container'>
       <Header />
       <Component {...rest} />
-    </>
+    </div>
   );
 };

@@ -14,15 +14,6 @@ const intialState = {
 // ____________________________
 
 const getItemsReducer = (state = intialState, { type, payload }) => {
-  // if (!action) {
-  //   console.warn('Action is undefined!');
-  //   return state; // Return current state if action is undefined
-  // }
-  // console.log('Action received:', action);
-  // const { type, payload } = action;
-  console.log('Action type:', type);
-  console.log('Action payload:', payload);
-
   switch (type) {
     // _______doRequestToGetItemsByFirstLetter__________
 

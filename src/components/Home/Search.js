@@ -15,7 +15,6 @@ const Search = (props) => {
     const { query, onSearchInputChange } = props;
     await onSearchInputChange(query);
     debouncedSearch(`${SEARCH_MEAL_BY_NAME}${target.value}`);
-    console.log('target', SEARCH_MEAL_BY_NAME + target.value);
   };
 
   return (

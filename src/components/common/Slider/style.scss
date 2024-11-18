@@ -1,11 +1,17 @@
 .slick-slider,
 .slick-initialized {
-  width: 60%;
-  margin: 60px auto;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgba(223, 223, 223, .59);
+
   .slick-list {
     padding: 0px 50px 20px;
     .slick-track {
       width: 45%;
+      display: flex;
     }
   }
 }
