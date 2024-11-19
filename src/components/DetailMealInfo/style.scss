@@ -19,14 +19,14 @@
     display: block;
     margin: 0 auto;
     padding: 5px;
-    border: 5px inset #daa520;
+    border: 5px inset #94aa42;
   }
 }
 
 .meal-item {
   text-align: center;
   font-weight: bold;
-  color: #282828;
+  color: inherit;
   img {
     display: block;
     margin: 10px auto;
@@ -39,8 +39,7 @@
 
 .instructions {
   font-weight: bold;
-  color: #282828;
-  background-color: rgba(223, 223, 223, .59);
+  color: inherit;
   padding: 24px 34px;
   line-height: 1.5rem;
 }

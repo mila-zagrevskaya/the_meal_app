@@ -34,7 +34,7 @@ const navItems = [
   },
 ];
 
-const activeStyle = { color: '#daa520', textDecoration: 'underline' };
+const activeStyle = { color: '#94aa42', textDecoration: 'underline' };
 
 export class Header extends Component {
   logout = () => {

@@ -8,9 +8,8 @@
   transition: all 0.5s ease;
   .meal-link {
     text-decoration: none;
-    color: #000;
-    border: 2px solid #daa520;
-    background: #fff;
+    color: #fff;
+    border: 2px solid #94aa42;
     margin: 20px 10px;
     padding: 10px 5px;
     flex-basis: 15%;
@@ -47,7 +46,7 @@
   }
   li:hover,
   .active {
-    color: #daa520;
+    color: #94aa42;
     text-decoration: underline;
   }
   .break-me {
@@ -55,6 +54,6 @@
   }
   .previous.hover,
   .next:hover {
-    color: #daa520;
+    color: #94aa42;
   }
 }
