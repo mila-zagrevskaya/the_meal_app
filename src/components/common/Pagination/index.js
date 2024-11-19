@@ -15,13 +15,19 @@ export const ListWithPagination = ({
 }) => {
   const [currentDisplayedItems, setCurrentDisplayedItems] = useState([]);
   const [countPages, setCountPages] = useState(1);
+  const [noDataMessage, setNoDataMessage] = useState('');
 
   useEffect(() => {
-    const startItemIndex = (currentPage - 1) * amountItemsOnPage;
-    const endItemIndex = currentPage * amountItemsOnPage;
-    if (meals) {
+    if (!meals) {
+      setNoDataMessage('Meals are not found');
+      setCurrentDisplayedItems([]);
+      setCountPages(1);
+    } else {
+      const startItemIndex = (currentPage - 1) * amountItemsOnPage;
+      const endItemIndex = currentPage * amountItemsOnPage;
       setCurrentDisplayedItems(meals.slice(startItemIndex, endItemIndex));
       setCountPages(Math.ceil(meals.length / amountItemsOnPage));
+      setNoDataMessage('');
     }
   }, [meals, currentPage, amountItemsOnPage]);
 
@@ -33,6 +39,7 @@ export const ListWithPagination = ({
   return (
     <>
       <div className='meal-cards'>
+        {noDataMessage && <p>{noDataMessage}</p>}
         {currentDisplayedItems && currentDisplayedItems.map((item) => (
           <NavLink to={`${DISH}${item.idMeal}`} className='meal-link' key={item.idMeal}>
             <div>
