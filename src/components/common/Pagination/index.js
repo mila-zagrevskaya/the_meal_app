@@ -19,8 +19,10 @@ export const ListWithPagination = ({
   useEffect(() => {
     const startItemIndex = (currentPage - 1) * amountItemsOnPage;
     const endItemIndex = currentPage * amountItemsOnPage;
-    setCurrentDisplayedItems(meals.slice(startItemIndex, endItemIndex));
-    setCountPages(Math.ceil(meals.length / amountItemsOnPage));
+    if (meals) {
+      setCurrentDisplayedItems(meals.slice(startItemIndex, endItemIndex));
+      setCountPages(Math.ceil(meals.length / amountItemsOnPage));
+    }
   }, [meals, currentPage, amountItemsOnPage]);
 
   const handlePageClick = async ({ selected }) => {
@@ -31,7 +33,7 @@ export const ListWithPagination = ({
   return (
     <>
       <div className='meal-cards'>
-        {currentDisplayedItems.map((item) => (
+        {currentDisplayedItems && currentDisplayedItems.map((item) => (
           <NavLink to={`${DISH}${item.idMeal}`} className='meal-link' key={item.idMeal}>
             <div>
               <img

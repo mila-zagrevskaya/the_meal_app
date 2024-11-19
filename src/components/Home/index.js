@@ -18,7 +18,6 @@ const Home = (props) => {
   }, []);
 
   const { meals, currentPage, changeSelectedPage } = props;
-  // console.log('meals', meals);
 
   return (
     <div className='page-wrapper'>

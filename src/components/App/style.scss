@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -11,17 +14,22 @@ body {
 }
 .container {
   background-color: #8a8a8a97;
+  min-height: 100vh;
 }
 .page-wrapper {
   max-width: 1400px;
+  height: 100vh;
   margin: 0 auto;
-  // background-color: #8a8a8a97;
-  min-height: 100vh;
 }
 .content-container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
   padding-top: 85px;
   margin: 0 auto;
+  transition: all 1s ease;
+  text-align: center;
+  height: 100%;
 }
 .page-not-found {
   color: #fff;

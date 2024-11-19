@@ -71,7 +71,6 @@ export const lookupFullMealDetailsById = (url, payload) => async (dispatch) => {
       .then((res) => res.json())
       .then((res) => res.meals[0]);
     const ingredients = await getIngredientsWithImages(meal);
-    console.log('ingredients_ACTION', ingredients);
 
     dispatch(getItemByIdSuccess({ meal, ingredients }));
   } catch (err) {
