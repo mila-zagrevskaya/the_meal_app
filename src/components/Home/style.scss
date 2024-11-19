@@ -1,10 +1,3 @@
-.content-container {
-  padding: 20px 30px;
-  margin: 40px 5px;
-  display: flex;
-  flex-direction: column;
-  transition: all 1s ease;
-}
 .title-wrapper {
   max-width: 55%;
   margin: 40px auto;
@@ -22,10 +15,11 @@ h1 {
   padding: 0.5rem 1rem;
   margin: 5px 0;
   border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 3px solid #daa520;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 3px solid #94aa42;
   display: block;
   transition: all 0.3s;
+  color: #fff;
   &:focus,
   &:active,
   &:hover {
@@ -33,11 +27,15 @@ h1 {
     box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.5);
     border-bottom: 3px solid green;
   }
+  &::placeholder {
+    color: inherit;
+  }
 }
 .meals-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  flex: 1 1 auto;
   justify-content: space-evenly;
   transition: all 1s ease;
 }

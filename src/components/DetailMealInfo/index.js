@@ -19,10 +19,7 @@ const DetailMealInfo = (props) => {
     lookupFullMealDetailsById(`${LOOKUP_FULL_MEAL_DETAILS_BY_ID}${MealUrl}`);
   }, [location]);
 
-  // console.log('props', props);
-
   const { meal, ingredients } = props;
-  console.log('meal', meal);
   return (
     <div className='page-wrapper'>
       <div className='content-container'>
