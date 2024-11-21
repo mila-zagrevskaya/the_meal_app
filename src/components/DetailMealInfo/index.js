@@ -24,7 +24,7 @@ const DetailMealInfo = (props) => {
     <div className='page-wrapper'>
       <div className='content-container'>
         <div className='meal-info' key={meal.idMeal}>
-          <h2>{meal.strMeal}</h2>
+          <h2 className='meal-title'>{meal.strMeal}</h2>
           <div className='presentational-container'>
             <div className='meal-photo'>
               <img className='dish-photography' src={meal.strMealThumb} alt={meal.strMeal} />
