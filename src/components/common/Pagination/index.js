@@ -39,7 +39,7 @@ export const ListWithPagination = ({
   return (
     <>
       <div className='meal-cards'>
-        {noDataMessage && <p>{noDataMessage}</p>}
+        {noDataMessage && <p className='no-data-message'>{noDataMessage}</p>}
         {currentDisplayedItems && currentDisplayedItems.map((item) => (
           <NavLink to={`${DISH}${item.idMeal}`} className='meal-link' key={item.idMeal}>
             <div>

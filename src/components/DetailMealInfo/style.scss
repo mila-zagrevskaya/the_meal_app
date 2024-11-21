@@ -1,5 +1,6 @@
 .presentational-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   gap: 20px;
   padding: 25px 0;
@@ -21,6 +22,10 @@
     padding: 5px;
     border: 5px inset #94aa42;
   }
+}
+
+.meal-title {
+  color: inherit;
 }
 
 .meal-item {
