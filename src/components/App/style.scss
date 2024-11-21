@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -5,23 +8,27 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(../../assets/images/bg-homePage.jpg);
+  background-image: url(../../assets/images/bg-homePage_dark.webp);
   background-size: cover;
   background-attachment: fixed;
+  color: #fff
 }
 .container {
-  background-color: #8a8a8a97;
+  min-height: 100vh;
 }
 .page-wrapper {
   max-width: 1400px;
+  height: 100vh;
   margin: 0 auto;
-  // background-color: #8a8a8a97;
-  min-height: 100vh;
 }
 .content-container {
-  text-align: center;
-  padding-top: 85px;
+  display: flex;
+  flex-direction: column;
+  padding: 85px 30px;
   margin: 0 auto;
+  transition: all 1s ease;
+  text-align: center;
+  min-height: 100%;
 }
 .page-not-found {
   color: #fff;
