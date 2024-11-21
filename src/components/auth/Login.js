@@ -1,5 +1,4 @@
 import React from 'react';
-// import firebaseConfig, { auth } from 'config/firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'config/firebaseConfig';
 import { Link, useNavigate } from 'react-router-dom';
