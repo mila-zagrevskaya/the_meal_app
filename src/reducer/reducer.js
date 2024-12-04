@@ -30,6 +30,7 @@ const getItemsReducer = (state = intialState, { type, payload }) => {
       console.log('GET_ITEMS_BY_FIRST_LETTER_FAIL', payload);
       return { ...state };
     }
+
     // _________lookupFullMealDetailsById_____________
 
     case types.GET_ITEM_BY__ID: {
@@ -47,6 +48,21 @@ const getItemsReducer = (state = intialState, { type, payload }) => {
 
     case types.GET_ITEM_BY__ID_FAIL: {
       console.log('GET_ITEM_BY__ID_FAIL', payload);
+      return { ...state };
+    }
+
+    // ______getListOfIngredients_____________
+
+    case types.GET_LIST_OF__INGREDIENTS: {
+      return { ...state };
+    }
+
+    case types.GET_LIST_OF__INGREDIENTS_SUCCESS: {
+      return { ...state, ingredients: payload };
+    }
+
+    case types.GET_LIST_OF__INGREDIENTS_FAIL: {
+      console.log('GET_LIST_OF__INGREDIENTS_FAIL', payload);
       return { ...state };
     }
 

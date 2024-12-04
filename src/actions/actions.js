@@ -1,6 +1,7 @@
 import { createAction } from 'redux-actions';
 import * as type from 'actionTypes/actionTypes';
 
+import { saveToLocalStorage } from 'services/localStorage';
 import { RAPIDAPI_KEY, RAPIDAPI_HOST } from 'constants/resource_URL';
 
 // _______doRequestToGetItemsByFirstLetter_____________________
@@ -40,22 +41,26 @@ export const changeSelectedPage = createAction(type.CHANGE_SELECTED_PAGE);
 
 // _____getIngredientImage____________
 
-export const getIngredientsWithImages = async (meal) => {
+const getImagesOfIngredients = (ingredientName) => {
   const INGREDIENT_IMAGES = process.env.REACT_APP_INGREDIENT_IMAGES;
+  const urlPhotoIngredient = `${INGREDIENT_IMAGES}${ingredientName}-Small.png`;
+  return urlPhotoIngredient;
+};
 
-  const listOfIngredients = Object.keys(meal).filter((item) => item.slice(0, 13) === 'strIngredient');
-  const listOfMeasures = Object.keys(meal).filter((item) => item.slice(0, 10) === 'strMeasure');
-  const ingredients = listOfIngredients.map((key) => meal[key]).filter((item) => item);
-  const measures = listOfMeasures.map((key) => meal[key]).filter((item) => item);
-  const urlPhotoIngredients = await Promise.all(
-    ingredients.map(async (ingredientName, index) => {
-      const ingredientMeasure = measures[index] || '';
-      const imageUrl = `${INGREDIENT_IMAGES}${ingredientName}-Small.png`;
-      return { ingredientName, ingredientMeasure, imageUrl };
-    }),
-  );
+export const getIngredientsWithImages = (meal) => {
+  const ingredients = Object.keys(meal)
+    .filter((key) => key.startsWith('strIngredient'))
+    .map((key) => meal[key])
+    .filter(Boolean);
+  const measures = Object.keys(meal)
+    .filter((key) => key.startsWith('strMeasure'))
+    .map((key) => meal[key] || '');
 
-  return urlPhotoIngredients;
+  return ingredients.map((ingredientName, index) => ({
+    ingredientName,
+    ingredientMeasure: measures[index] || '',
+    imageUrl: getImagesOfIngredients(ingredientName),
+  }));
 };
 
 // ______lookupFullMealDetailsById________
@@ -75,5 +80,34 @@ export const lookupFullMealDetailsById = (url, payload) => async (dispatch) => {
     dispatch(getItemByIdSuccess({ meal, ingredients }));
   } catch (err) {
     dispatch(getItemByIdFail(err));
+  }
+};
+
+export const getListOfIngredientsWithImages = async (ingredients) => ingredients.map(
+  (ingredient) => ({
+    idIngredient: ingredient.idIngredient,
+    ingredient: ingredient.strIngredient,
+    description: ingredient.strDescription,
+    type: ingredient.strType,
+    imageUrl: getImagesOfIngredients(ingredient.strIngredient),
+  }),
+);
+
+// ______getListOfIngredients_____________
+const getListOfIngredients = createAction(type.GET_LIST_OF__INGREDIENTS);
+const getListOfIngredientsSuccess = createAction(type.GET_LIST_OF__INGREDIENTS_SUCCESS);
+const getListOfIngredientsFail = createAction(type.GET_LIST_OF__INGREDIENTS_FAIL);
+
+export const doRequestToGetListOfIngredients = (url, payload) => async (dispatch) => {
+  dispatch(getListOfIngredients(payload));
+  try {
+    const response = await fetch(url, options);
+    const json = await response.json();
+    const listOfIngredients = json.meals;
+    const ingredients = await getListOfIngredientsWithImages(listOfIngredients);
+    saveToLocalStorage('ingredients', ingredients);
+    dispatch(getListOfIngredientsSuccess(ingredients));
+  } catch (err) {
+    dispatch(getListOfIngredientsFail(err));
   }
 };

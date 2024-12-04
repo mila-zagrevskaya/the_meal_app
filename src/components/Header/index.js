@@ -16,19 +16,16 @@ const navItems = [
     path: HOME,
     id: 1,
     text: 'Home',
-    exact: true,
   },
   {
     path: POPULAR_INGREDIENTS,
     id: 2,
     text: 'Popular ingredients',
-    exact: false,
   },
   {
     path: BROWSE_COUNTRY,
     id: 3,
     text: 'Browse Country',
-    exact: false,
   },
 ];
 

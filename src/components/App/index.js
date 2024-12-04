@@ -7,6 +7,7 @@ import {
   lookupFullMealDetailsById,
   onSearchInputChange,
   changeSelectedPage,
+  doRequestToGetListOfIngredients,
 } from 'actions/actions';
 
 import './style.scss';
@@ -26,6 +27,7 @@ const mapDispatchToProps = {
   lookupFullMealDetailsById,
   onSearchInputChange,
   changeSelectedPage,
+  doRequestToGetListOfIngredients,
 };
 
 export default connect(

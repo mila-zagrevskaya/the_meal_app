@@ -4,7 +4,6 @@ import { createHashHistory } from 'history';
 import {
   Formik, Form, Field, FieldArray, ErrorMessage,
 } from 'formik';
-// import firebaseConfig, { auth } from 'config/firebaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from 'config/firebaseConfig';
 import {

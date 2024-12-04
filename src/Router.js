@@ -4,13 +4,14 @@ import { Routes, Route } from 'react-router-dom';
 
 import { ProtectedRoute } from 'ProtectedRoute';
 import {
-  HOME, DETAIL_MEAL_INFO, LOG_IN, SING_UP,
+  HOME, DETAIL_MEAL_INFO, LOG_IN, SING_UP, POPULAR_INGREDIENTS,
 } from 'constants/pathnames';
 
 import LoginForm from 'components/auth/Login';
 import { HomePage } from 'components/Home';
 import { MealInfo } from 'components/DetailMealInfo/';
 import { RegisterForm } from 'components/auth/Register';
+import { PopularIngredientsPage } from 'components/PopularIngredients';
 
 const PAGENOTFOUND = () => <div className='page-not-found'>PAGE 404 NOT FOUND</div>;
 
@@ -38,6 +39,12 @@ const route = [
     path: SING_UP,
     protected: false,
     component: RegisterForm,
+  },
+  {
+    id: 5,
+    path: POPULAR_INGREDIENTS,
+    protected: true,
+    component: PopularIngredientsPage,
   },
 ];
 
