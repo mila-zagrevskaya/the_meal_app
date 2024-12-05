@@ -1,35 +1,10 @@
 .title-wrapper {
   max-width: 55%;
-  margin: 40px auto;
+  margin: 0 auto;
   padding: 10px 15px;
 }
 h1 {
   text-transform: uppercase;
-}
-.search-container {
-  align-self: flex-end;
-  width: 45%;
-}
-.input-search {
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 3px solid #94aa42;
-  display: block;
-  transition: all 0.3s;
-  color: #fff;
-  &:focus,
-  &:active,
-  &:hover {
-    outline: none;
-    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.5);
-    border-bottom: 3px solid green;
-  }
-  &::placeholder {
-    color: inherit;
-  }
 }
 .meals-container {
   display: flex;

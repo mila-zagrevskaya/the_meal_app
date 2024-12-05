@@ -1,17 +1,26 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { debounce } from 'lodash';
 import { bindActionCreators } from 'redux';
 import * as actions from 'actions/actions';
 import { SEARCH_MEAL_BY_NAME } from 'constants/resource_URL';
 
 import { ListWithPagination } from 'components/common/Pagination';
-import { SearchField } from './Search';
+import { SearchField } from '../common/Search';
 
 import './style.scss';
 
 const INITIAL_SEARCH_PARAMETER = 'a';
 
 const Home = (props) => {
+  const debouncedSearch = debounce(props.doRequestToGetItemsByFirstLetter, 1500);
+
+  const handleInputChange = async ({ target }) => {
+    const { query, onSearchInputChange } = props;
+    await onSearchInputChange(query);
+    debouncedSearch(`${SEARCH_MEAL_BY_NAME}${target.value}`);
+  };
+
   useEffect(() => {
     const { doRequestToGetItemsByFirstLetter } = props;
     doRequestToGetItemsByFirstLetter(`${SEARCH_MEAL_BY_NAME}${INITIAL_SEARCH_PARAMETER}`);
@@ -30,7 +39,7 @@ const Home = (props) => {
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
         </div>
-        <SearchField />
+        <SearchField searchHandler = {handleInputChange}/>
         <div className='meals-container'>
           <ListWithPagination
             meals={meals}

@@ -1,0 +1,49 @@
+.ingredients-list {
+	display: flex;
+	flex: 1 1 auto;
+  align-items: stretch;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 24px;
+}
+
+.list-item {
+	.ingredients-list & {
+		width: 40%;
+		height: 300px;
+		display: flex;
+		align-items: stretch;
+		justify-items: center;
+    transition: all 0.5s ease;
+		border: 2px solid #94aa42;
+		border-radius: 2px;
+		padding: 12px 6px;
+		background: #373a3ec9;
+		position: relative;
+	}
+}
+
+.item-img {
+	.ingredients-list & {
+		width: 100%;
+		max-width: 120px;
+		object-fit: contain;
+	}
+}
+
+.item-title {
+	.ingredients-list & {
+		margin-bottom: 8px;
+		font-size: 1.2rem;
+	}
+}
+
+.item-description {
+	padding: 12px 6px;
+  transition: all 0.5s ease;
+	overflow-y: auto;
+	margin: 0;
+	margin-left: 12px;
+	text-align: start;
+}

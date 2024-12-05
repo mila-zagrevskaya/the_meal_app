@@ -18,17 +18,17 @@ body {
 }
 .page-wrapper {
   max-width: 1400px;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0 auto;
 }
 .content-container {
   display: flex;
   flex-direction: column;
-  padding: 85px 30px;
+  padding: 100px 30px 0;
   margin: 0 auto;
   transition: all 1s ease;
   text-align: center;
-  min-height: 100%;
+  min-height: 100vh;
 }
 .page-not-found {
   color: #fff;
@@ -38,4 +38,17 @@ body {
 }
 h2 {
   color: #282828;
+}
+
+.has-scroll {
+  &::-webkit-scrollbar {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    width: 4px;
+    height: 7px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    width: 4px;
+    background: #94aa42;
+  }
 }
